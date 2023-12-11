@@ -31,4 +31,16 @@ fun main() {
 
 //    if we don't define then by default it will get integer
 
+    println("DOUBLE And Float ======================");
+
+    val floatValue: Float = 2.0f;
+    println("Floating number : $floatValue");
+    val doubleValue: Double = 2.0;
+    println("Double number: $doubleValue");
+
+    println("================Char and boolean");
+//    using  char we can have only single letter inside single cot
+    val myCharValue: Char = 'A';
+    println("My char value is $myCharValue");
+
 }
