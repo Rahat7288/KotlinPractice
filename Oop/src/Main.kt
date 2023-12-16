@@ -1,11 +1,11 @@
 fun main() {
     println("=======learning OOP================")
 //    defining object of the car
-    val car1 = Car()
-    car1.name = "Tesla"
-    car1.model = "S Plaid"
-    car1.color = "Red"
-    car1.doors = 4
+    val car1 = Car("Tesla", "S Plade", color = "Red", 4)
+//    car1.name = "Tesla"
+//    car1.model = "S Plaid"
+//    car1.color = "Red"
+//    car1.doors = 4
 
     println("Name = ${car1.name}")
     println("Name = ${car1.model}")
@@ -19,13 +19,11 @@ fun main() {
 }
 
 //class define==========
+//defining primary constructor
 
-class Car{
-//    properties==========
-    var name = ""
-    var model = ""
-    var color = ""
-    var doors = 0
+class Car(//    properties==========
+    var name: String, var model: String, var color: String, var doors: Int
+){
 
     fun move(){
         println("The car $name is moving ")
@@ -35,3 +33,9 @@ class Car{
         println("The car $name has stopped")
     }
 }
+
+//when to use property and when to use constructor
+/*
+* if we need to do some operations on a property then we will use property other than we will
+* use constructor
+* */
