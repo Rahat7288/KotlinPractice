@@ -1,3 +1,5 @@
+//class define==========
+//defining primary constructor
 class Car(//    properties==========
     var name: String, var model: String, var color: String, var doors: Int
 ){
