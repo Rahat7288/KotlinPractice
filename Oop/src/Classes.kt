@@ -17,4 +17,7 @@ class Car(//    properties==========
 /*
 * if we need to do some operations on a property then we will use property other than we will
 * use constructor
+*
+*
+* in kotlin we can define multiple constructor known as secondary constructor
 * */

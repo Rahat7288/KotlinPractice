@@ -21,10 +21,20 @@ fun main() {
     println("The User Name is ${user.firstName}")
 
 
+    println("companion objects")
+
+
+
+    val result = Calculator.sum(5,10)
+    println("the result is : $result")
+
+
+
 }
 
 class User ( firstName: String, var lastName: String, var age: Int){
     var firstName: String
+    lateinit var middleName: String
 
     init {
         if (firstName.lowercase().startsWith(prefix = "a")){
@@ -34,5 +44,23 @@ class User ( firstName: String, var lastName: String, var age: Int){
             println("The first name doesn't start with A or a")
         }
     }
+}
+
+//companion object
+/*
+with the help of companion object we don't need to create an object to access of the
+specific class.
+companion object itself a property of the specific class
+
+/
+ */
+
+class Calculator(){
+    companion object{
+        fun sum (a: Int, b: Int): Int{
+            return  a+ b;
+        }
+    }
+
 }
 
