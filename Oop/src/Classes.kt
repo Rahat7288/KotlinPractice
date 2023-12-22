@@ -39,6 +39,26 @@ class User ( firstName: String, var lastName: String, var age: Int){
 //lateinit ======================
 
 
+//inner Class ============
+
+/*
+* we can define a class inside another class
+* */
+
+
+class ListView (val items: Array<String>){
+
+    //    inner class can access the outer class
+    inner class ListViewItems(){
+        fun displayItem(position: Int){
+            println(items[position])
+        }
+    }
+}
+
+//inner class ======================
+
+
 
 
 //companion object
