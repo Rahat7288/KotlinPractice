@@ -110,3 +110,35 @@ object  Database {
     }
 }
 //singleton =======================
+
+//inheritance ==============
+/*
+* inheritance can have the propertise or variables form it's parent class
+* */
+
+open class Vehicle(val name: String, val color: String){
+    open fun start(){
+        println("$name has started")
+    }
+
+    open fun stop(){
+        println("$name has stop")
+    }
+}
+
+class Cars(name: String, color: String, val engine: Int, val doors: Int): Vehicle(name, color){
+
+}
+
+class  Plane (name: String, color: String, val engine: Int, val doors: Int): Vehicle(name, color){
+    override fun start() {
+        flying()
+        super.start()
+    }
+
+    fun flying(){
+        println("The plane is flying ")
+    }
+}
+
+//inheritance ===========================
