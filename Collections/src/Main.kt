@@ -33,6 +33,14 @@ fun main() {
 
 
 //generic type parameter ===================
+//type definition
+
+/*
+* upperbound
+* class Team<T: Player>(val name: String, val players: MutableList<T>
+here the team class knows that this class will get only palyer type
+* then we don't need any cast to implement
+* */
 
 class Team<T>(val name: String, val players: MutableList<T>){
     fun addPlayer(player: T){
