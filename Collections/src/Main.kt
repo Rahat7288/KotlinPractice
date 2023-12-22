@@ -13,49 +13,41 @@ fun main() {
 //
 //    println(colors.zip(animals))
 
+//generic type parameter ========================
+//    val footballPlayer = FootballPlayer("Football player 1")
+//    val footballPlayer1 = FootballPlayer("Football player 2")
+//    val footballPlayer2 = FootballPlayer("Football player 3")
+//    val footballPlayer3 = FootballPlayer("Football player 4")
+//
+//    println("Baseball players========")
+//
+//    val  baseballPlayer = BaseballPlayer("Baseball Player")
+//    val  baseballPlayer1 = BaseballPlayer("Baseball Player 1")
+//
+//    val footballTeam = Team<FootballPlayer>("Football Player", mutableListOf(footballPlayer))
+//
+//    footballTeam.addPlayer(footballPlayer)
+//    footballTeam.addPlayer(footballPlayer3)
 
-    val footballPlayer = FootballPlayer("Football player 1")
-    val footballPlayer1 = FootballPlayer("Football player 2")
-    val footballPlayer2 = FootballPlayer("Football player 3")
-    val footballPlayer3 = FootballPlayer("Football player 4")
+//    =========================================
 
-    println("Baseball players========")
+//    try and catch ====================================
 
-    val  baseballPlayer = BaseballPlayer("Baseball Player")
-    val  baseballPlayer1 = BaseballPlayer("Baseball Player 1")
+    val a = 0
+    val b = 5
 
-    val footballTeam = Team<FootballPlayer>("Football Player", mutableListOf(footballPlayer))
-
-    footballTeam.addPlayer(footballPlayer)
-    footballTeam.addPlayer(footballPlayer3)
-
-}
-
-
-//generic type parameter ===================
-//type definition
-
-/*
-* upperbound
-* class Team<T: Player>(val name: String, val players: MutableList<T>
-here the team class knows that this class will get only palyer type
-* then we don't need any cast to implement
-* */
-
-class Team<T>(val name: String, val players: MutableList<T>){
-    fun addPlayer(player: T){
-        if (players.contains(player)){
-            println("Playre: ${(player as Player).name} is already in the team ${this.name}")
-        }else{
-            players.add(player)
-            println("Player : ${(player as Player).name}  is added to the list ${this.name}")
-
-        }
+    try {
+        println(a/b)
+    }catch (error: ArithmeticException){
+        println("you can't divide by 0: ${error}")
+        0
+    }finally {
+        print("divided by 5")
     }
+
+
+//    =======a===========================================
+
 }
 
 
-open class Player(val name: String)
-
-class FootballPlayer(name: String): Player(name)
-class  BaseballPlayer(name: String): Player(name)
