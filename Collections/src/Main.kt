@@ -1,20 +1,10 @@
 fun main() {
-    println("List========")
-//this is a immutable type list we can not add or remove elements to this list
-    val names = listOf<String>("Rahat", "Akash", "Asad", "Ritesh")
+    println("collections operations========")
 
-    println(names[2])
-//    this mutable list we can add or remove elements tto this list
+    val numbers = setOf(1,2,3,4,5)
+    println(numbers.map { if( it == 3 ) it * 100 else it * 10})
 
-    val namess = mutableListOf<String>("name 1", "name 2", "name 3")
-     namess.add("name 4")
-    namess.removeAt(0)
-    for (name in namess){
-        println(name)
-    }
+    val numberMap = mapOf("key 1 "  to 1, "key 2" to 2, "key 3" to 3)
+    println(numberMap.mapKeys { it.key.uppercase() })
 
-    println("maps =============")
-
-    val user = mapOf<Int, String>(1 to "Rahat", 2 to "Islam", 3 to "Akash")
-    println(user[3])
 }
