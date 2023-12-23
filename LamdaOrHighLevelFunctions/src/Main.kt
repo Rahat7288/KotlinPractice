@@ -10,6 +10,8 @@ fun main() {
 
 }
 
+//lamda functions=================
+
 fun add (a: Int, b: Int, action: (Int)-> Unit){
     action(a+b)
 }
