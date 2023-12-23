@@ -25,35 +25,46 @@ fun main() {
 
 //       example with launch builder for coroutine===============
 
-//       val job1 = launch {
-//          val result1 = getDetail(Thread.currentThread().name)
-//           println("form coroutine 1:  $result1")
-//       }
-////       if we want to run the job in sequential not parallel order
-////       we will call join
-//       job1.join()
-//       val job2 = launch {
-//           val result2 = getData2(Thread.currentThread().name)
-//           println("form coroutine 2: $result2")
-//       }
+       val job1 = launch {
+
+
+           try {
+               val result1 = getDetail(Thread.currentThread().name)
+               println("form coroutine 1:  $result1")
+
+           }catch (ex: CancellationException){
+               println("Exception caught safe: ${ex.message}")
+           }finally {
+               println("Resource closed safely")
+           }
+       }
+//       if we want to run the job in sequential not parallel order
+//       we will call join
+        job1.cancel(CancellationException("My own error message"))
+       job1.join()
+
+       val job2 = launch {
+           val result2 = getData2(Thread.currentThread().name)
+           println("form coroutine 2: $result2")
+       }
 //       ======================================================
 
 //       example with the async builder in coroutine =============
 
 
-       val jobDeferred1: Deferred<String> = async {
-           getDetail(Thread.currentThread().name)
+//       val jobDeferred1: Deferred<String> = async {
+//           getDetail(Thread.currentThread().name)
+//
+//       }
+////       if we want to run the job in sequential not parallel order
+////       we will call join
+////       job1.join()
+//       val jobDeferred2: Deferred<String> = async {
+//          getData2(Thread.currentThread().name)
+//
+//       }
 
-       }
-//       if we want to run the job in sequential not parallel order
-//       we will call join
-//       job1.join()
-       val jobDeferred2: Deferred<String> = async {
-          getData2(Thread.currentThread().name)
-
-       }
-
-       println(jobDeferred1.await()+"\n ${jobDeferred2.await()}")
+//       println(jobDeferred1.await()+"\n ${jobDeferred2.await()}")
 
 //       ==============================
     }
